@@ -1,2 +1,0 @@
-# minitwitter
-created by kikuta
