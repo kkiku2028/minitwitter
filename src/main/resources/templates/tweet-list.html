@@ -12,11 +12,13 @@ integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLAS
 		<tr th:each="tweet : ${tweetList}">
 			<td th:text="${tweet.content}"></td>
 			<td th:text="${tweet.create_time}"></td>
+			<td>
+				<form th:action="@{delete/{id}(id=${tweet.id})}" method="post">
+					<button class="btn btn-danger" value="削除">削除</button>
+				</form>
+			</td>
 		</tr>
 	</table>
-	
-		<button class="btn btn-danger" value="削除">削除</button> 
-	
 	<button class="btn btn-warning" onclick="location.href='add'">ツイートする</button>
 </div>
 </body>

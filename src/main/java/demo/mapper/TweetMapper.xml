@@ -9,4 +9,8 @@
 		insert into tweet(user_id, content)
 		values(#{user_id}, #{content});
 	</insert>
+	<delete id="delete">
+		delete from tweet
+		where id = #{id}
+	</delete>
 </mapper>

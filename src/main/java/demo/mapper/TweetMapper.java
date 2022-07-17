@@ -14,4 +14,5 @@ public interface TweetMapper {
 	List<Tweet> findAll();
 	
 	int save(Tweet tweet);
+	int delete(Integer id);
 }

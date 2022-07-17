@@ -23,4 +23,9 @@ public class TweetRepositoryImpl implements TweetRepository {
 	public int save(Tweet tweet) {
 		return tweetMapper.save(tweet);
 	}
+	
+	@Override
+	public int delete(Integer id) {
+		return tweetMapper.delete(id);
+	}
 }
