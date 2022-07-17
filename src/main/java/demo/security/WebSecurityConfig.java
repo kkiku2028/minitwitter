@@ -12,7 +12,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
 /**
- * @see https://qiita.com/yamateion/items/c1affc4fa8defa814a41
+ * @see <a href="https://qiita.com/yamateion/items/c1affc4fa8defa814a41">...</a>
  */
 @EnableWebSecurity
 public class WebSecurityConfig {
@@ -33,8 +33,6 @@ public class WebSecurityConfig {
 				.requestMatchers(PathRequest.toStaticResources().atCommonLocations())
 				.permitAll()
 				.mvcMatchers("/minitwitter/login")
-				.permitAll()
-				.mvcMatchers("/minitwitter/admin/**")
 				.permitAll()
 				.anyRequest()
 				.authenticated()

@@ -22,6 +22,9 @@ public class AuthUserDetailsService implements UserDetailsService {
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		Optional<User> optionalUser = Optional.ofNullable(loginMapper.findUserByName(username))
 							.orElseThrow(() -> new UsernameNotFoundException("User Not Found"));
+		if (optionalUser.isEmpty()) {
+			throw new UsernameNotFoundException("User Not Found");
+		}
 		User user = optionalUser.get();
 		return new AuthUserDetails(user, getAuthorities(user));
 	}
