@@ -4,4 +4,4 @@ create table user (
     password varchar(1000) not null,
     create_time timestamp default current_timestamp,
     update_time timestamp default current_timestamp on update current_timestamp
-)
+);
