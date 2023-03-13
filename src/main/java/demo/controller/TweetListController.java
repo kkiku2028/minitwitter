@@ -8,7 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import demo.entity.TweetEntity;
+import demo.domain.Tweet;
 import demo.service.TweetListService;
 
 @Controller
@@ -19,7 +19,7 @@ public class TweetListController {
 	
 	@GetMapping
 	public String findAll(Model model) {
-		List<TweetEntity> tweetList = tweetListService.findAll();
+		List<Tweet> tweetList = tweetListService.findAll();
 		model.addAttribute("tweetList", tweetList);
 		return "tweet-list";
 	}

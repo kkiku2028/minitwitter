@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import demo.domain.User;
 import demo.service.UserService;
-import demo.entity.UserEntity;
-import demo.form.UserForm;
+import demo.form.LoginForm;
 
 @Controller
 @RequestMapping("/minitwitter/login")
@@ -26,12 +26,9 @@ public class LoginController {
 	@Autowired
 	private UserService userService;
 	
-	@Autowired
-	private UserSession userSession;
-	
-	public LoginController(UserService userService) {
-		this.userService = userService;
-	}
+//	public LoginController(UserService userService) {
+//		this.userService = userService;
+//	}
 	
 	@GetMapping
 	public String show() {
@@ -39,7 +36,7 @@ public class LoginController {
 	}
 	
 	@PostMapping
-	public String findUser(@Validated UserForm form, BindingResult bindingResult, Model model, HttpSession session) {
+	public String findUser(@Validated LoginForm form, BindingResult bindingResult, Model model, HttpSession session) {
 		
 		//ユーザ名またはパスワードが入力されていなかった場合ログイン画面にフォワード
 		if (bindingResult.hasErrors()) {
@@ -53,7 +50,7 @@ public class LoginController {
 		}
 		
 		//ログイン情報が取得できなかった場合ログイン画面いフォワード
-		UserEntity user = userService.findUser(form);
+		User user = userService.findUser(form);
 //		System.out.println(user);
 		if (user == null) {
 			List<String> errorList = new ArrayList<String>();
@@ -63,12 +60,7 @@ public class LoginController {
 			return "login";
 		}
 		
-		//セッションクラスにユーザ情報を退避
-		userSession.setUserForm(form);
-		
 		session.setAttribute("user", user);
 		return "redirect:/minitwitter/tweet-list";
-		
-
 	}
 }
