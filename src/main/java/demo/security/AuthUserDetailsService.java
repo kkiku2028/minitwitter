@@ -11,7 +11,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import demo.domain.User;
+import demo.dao.UserDao;
 
 @Service
 public class AuthUserDetailsService implements UserDetailsService {
@@ -20,16 +20,16 @@ public class AuthUserDetailsService implements UserDetailsService {
 	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		Optional<User> optionalUser = Optional.ofNullable(loginMapper.findUserByName(username))
+		Optional<UserDao> optionalUser = Optional.ofNullable(loginMapper.findUserByName(username))
 							.orElseThrow(() -> new UsernameNotFoundException("User Not Found"));
 		if (optionalUser.isEmpty()) {
 			throw new UsernameNotFoundException("User Not Found");
 		}
-		User user = optionalUser.get();
+		UserDao user = optionalUser.get();
 		return new AuthUserDetails(user, getAuthorities(user));
 	}
 	
-	private Collection<GrantedAuthority> getAuthorities(User user) {
+	private Collection<GrantedAuthority> getAuthorities(UserDao user) {
 		return AuthorityUtils.createAuthorityList("ROLE_USER");
 	}
 }

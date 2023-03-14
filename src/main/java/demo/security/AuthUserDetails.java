@@ -7,14 +7,14 @@ import org.springframework.security.core.userdetails.User;
 
 public class AuthUserDetails extends User {
 	private static final long serialVersionUID = 1L;
-	private final demo.domain.User user;
+	private final demo.dao.UserDao user;
 	
-	public AuthUserDetails(demo.domain.User user, Collection<GrantedAuthority> authorities) {
+	public AuthUserDetails(demo.dao.UserDao user, Collection<GrantedAuthority> authorities) {
 		super(user.getUsername(), user.getPassword(), authorities);
 		this.user = user;
 	}
 	
-	public demo.domain.User getUser() {
+	public demo.dao.UserDao getUser() {
 		return user;
 	}
 }

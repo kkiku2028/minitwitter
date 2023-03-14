@@ -2,8 +2,18 @@ package demo.service;
 
 import java.util.List;
 
-import demo.domain.Tweet;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-public interface TweetListService {
-	List<Tweet> findAll();
+import demo.dao.TweetDao;
+import demo.entity.TweetEntity;
+
+@Service
+public class TweetListService  {
+	@Autowired
+	TweetDao tweetDao;
+
+	public List<TweetEntity> findAll() {
+		return tweetDao.findAll();
+	}
 }
