@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<th:block th:fragment="headtag">
+		<script th:src="@{/js/jquery-3.6.3.min.js}"></script>
+		<script th:src="@{/js/header.js}"></script>
+		<link th:href="@{/css/header.css}" rel="stylesheet" type="text/css">
+	</th:block>
+</head>
+<body>
+	<header th:fragment="header">
+		<h1>miniTwitter</h1>
+		<div th:if="session != null">
+			<span th:text="${session.user.username}"></span>さん
+			<a class="logoutbutton" th:href=|/minitwitter/logout|>ログアウト</a>
+		</div>	
+	</header>
+	
+	<!-- 
+		<header th:fragment="header" class="header-body">
+		<div th:if="session != null" id="user-info">
+			<span th:text="${session.user.username}"></span>さん
+		</div>
+		<a class="logoutbutton" th:href=|/minitwitter/logout|>ログアウト</a>
+		</header>
+		-->
+</body>
+</html>

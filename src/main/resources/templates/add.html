@@ -1,24 +1,30 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link th:href="@{/css/addtweet.css}" rel="stylesheet" type="text/css">
+	<th:block th:replace="header.html :: headtag"></th:block>
 </head>
 <body>
+<div th:replace="header.html :: header" />
 	<h1>ツイート作成</h1>
 	<table>
 		<tr th:if="${validationError}" th:each="error : ${validationError}">
 			<td style="color: red;" th:text="${error}"></td>
 		</tr>
 	</table>
-	[[${session.user.id}]]
+	<!-- [[${session.user.id}]] -->
 	<form action="/minitwitter/add" method="post" th:object="${tweetForm}" enctype="multipart/form-data" class="text-center" >
-		<p><textarea rows="10" cols="50" id="body" name="content"></textarea></p>
+		<p><textarea rows="10" cols="50" id="body" name="content" placeholder="ツイートを入力"></textarea></p>
 		<input type="hidden" name="user_id" th:value="${session.user.id}">
+		<!--
 		<div class="form-group">
 			<label for="file">File:</label>
 			<input type="file" name="file" id="file" class="form-control-file">
 		</div>
+		-->
 		<button type="submit" value="ツイート">ツイート</button>
 	</form>
+	<a class="returnbutton" th:href=|/minitwitter/tweet-list|>戻る</a>
 </body>
 </html>

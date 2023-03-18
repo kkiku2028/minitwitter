@@ -1,0 +1,9 @@
+@charset "UTF-8";
+
+.returnbutton {
+	color: #fff;
+	background: #5876a3;
+	padding: 2px 10px;
+	border-radius: 5px;
+	text-decoration: none;
+}

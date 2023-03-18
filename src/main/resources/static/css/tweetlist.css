@@ -1,0 +1,5 @@
+@charset "UTF-8";
+
+.nowrap {
+  white-space: nowrap; /* 勝手に折り返さない */
+}

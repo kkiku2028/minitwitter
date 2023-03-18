@@ -17,10 +17,14 @@ public class TweetListController {
 	@Autowired
 	private TweetListService tweetListService;
 	
+	@Autowired
+	private UserSession userSession;
+	
 	@GetMapping
 	public String findAll(Model model) {
 		List<TweetEntity> tweetList = tweetListService.findAll();
 		model.addAttribute("tweetList", tweetList);
+		model.addAttribute("userSession", userSession);
 		return "tweet-list";
 	}
 

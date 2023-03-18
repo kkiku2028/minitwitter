@@ -1,0 +1,9 @@
+@charset "UTF-8";
+
+header {
+	position: relative;
+	background-color: #def7ff;
+}
+.logoutbutton {
+	text-decoration: none;
+}
