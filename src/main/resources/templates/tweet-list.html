@@ -12,13 +12,13 @@
 	
 	<table class="nowrap">
 		<colgroup>
-			<col width="100px">
-			<col width="100px">
+			<col width="800px">
+			<col width="200px">
 			<col width="50px">
 		</colgroup>
 		<tr th:each="tweet : ${tweetList}">
 			<td th:text="${tweet.content}"></td>
-			<td th:text="${tweet.create_time}"></td>
+			<td th:text="${tweet.createTimeString}"></td>
 			<td>
 				<form th:action="@{delete/{id}(id=${tweet.id})}" method="post">
 					<button class="delete" value="削除">削除</button>
