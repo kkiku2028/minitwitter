@@ -3,7 +3,17 @@
 header {
 	position: relative;
 	background-color: #def7ff;
+	display: flex;
 }
 .logoutbutton {
 	text-decoration: none;
+}
+
+.title {
+	margin-top: 0px;
+	height: 60px;
+}
+.userinfo {
+	width: 1300px;
+	padding-left: 1100px; /*要素を右寄せ*/
 }

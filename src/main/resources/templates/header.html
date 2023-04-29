@@ -9,10 +9,12 @@
 </head>
 <body>
 	<header th:fragment="header">
-		<h1>miniTwitter</h1>
+		<h1 class="title">miniTwitter</h1>
 		<div th:if="session != null">
-			<span th:text="${session.user.username}"></span>さん
-			<a class="logoutbutton" th:href=|/minitwitter/logout|>ログアウト</a>
+			<p class="userinfo">
+				<span th:text="${session.user.username}"></span>さん
+				<a class="logoutbutton" th:href=|/minitwitter/logout|>ログアウト</a>
+			</p>
 		</div>	
 	</header>
 	

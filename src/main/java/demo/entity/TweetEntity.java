@@ -13,6 +13,8 @@ public class TweetEntity {
 	private String content;
 	private Timestamp create_time;
 	private Timestamp update_time;
+	//timestamp→String変換後時刻
+	private String createTimeString;
 	
 	private String name;
 	private String type;	

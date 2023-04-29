@@ -2,4 +2,5 @@
 
 .nowrap {
   white-space: nowrap; /* 勝手に折り返さない */
+  padding-left: 170px;
 }
